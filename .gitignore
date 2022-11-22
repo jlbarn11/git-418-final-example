@@ -1,2 +1,4 @@
 
 config.js
+.gitsecret/keys/random_seed
+!*.secret
