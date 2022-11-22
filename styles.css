@@ -643,6 +643,20 @@ body.dark .slick-center{
     content: "\2600"; /* a sun icon in place of regular bullet */
 }
 
+/* #get-out li:nth-of-type(even)::before{
+    color: var(--accent);
+    font-size: 2.25rem;
+    padding-top: 0.25rem;
+    content: "\2600";  a sun icon in place of regular bullet 
+} */
+
+/* #get-out li:nth-of-type(odd)::before{
+    color: var(--accent);
+    font-size: 2.25rem;
+    padding-top: 0.25rem;
+    content: "\2601";  a cloud icon in place of regular bullet 
+} */
+
 #accordion #crafts svg{
     float: none;
     display: block;
@@ -696,18 +710,10 @@ body.dark .slick-center{
     justify-content: start;
 }
 
-#prev-site::after{
-    content: "Previous Site";
-}
-
 #next-site{
     grid-column: 2/3;
     grid-row: 1/2;
     justify-content: end;
-}
-
-#next-site::before{
-    content: "Next Site";
 }
 
 #next-site svg, #prev-site svg{
@@ -881,6 +887,15 @@ body.dark #socials svg{
     .slick-track{
         padding-top: 25vw;
     }
+
+    /* ----- HOBBIES SECTION BUTTON STYLES FOR CAROUSEL ----- */
+    #prev-site::after{
+        content: "prev";
+    }
+    
+    #next-site::before{
+        content: "next";
+    }
 }
 
 /* ----- TABLET STYLES ----- */
@@ -973,6 +988,14 @@ body.dark #socials svg{
     
     #crafts p:first-of-type{
         grid-column: 1/-1;
+    }
+
+    #prev-site::after{
+        content: "Previous Site";
+    }
+    
+    #next-site::before{
+        content: "Next Site";
     }
 
     /* ----- FOOTER STYLES ----- */
