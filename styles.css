@@ -1,0 +1,1184 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ----- CUSTOM GLOBAL STYLES ----- */
+/* ----- ROOT STYLES ----- */
+:root{
+    --fonts: 'Figtree', Arial, sans-serif;
+
+    --lightest: #F2F2F2;
+    --med-lt: #D9D9D9;
+    --medium: #BFBFBF;
+    --med-dk: #A5A6A1;
+    --dark: #40403F;
+    --accent: #F26800;
+    --dk-accent: #8e3d00;
+
+    --lightest-rgba: rgba(242, 242, 242, 1);
+    --md-lt-rgba:  rgba(216, 216, 216, 1);
+    --med-rgba: rgba(191, 191, 191, 1);
+    --md-dk-rgba: rgba(165, 165, 160, 1);
+    --dk-rgba: rgba(63, 63, 63, .7);
+
+    --box-shadow-large: -0.5rem 0.5rem 0.75rem var(--dk-rgba);
+    --box-shadow-small: -0.25rem 0.25rem 0.5rem var(--dk-rgba);
+    --filter-shadow-large: drop-shadow(-0.75rem 0.75rem 0.5rem var(--dk-rgba));
+    --filter-shadow-small: drop-shadow(-0.25rem 0.25rem 0.12rem var(--dk-rgba));
+    --filter-light-shadow: drop-shadow(0 0 0.75rem var(--med-lt));
+    --filter-dark-shadow: drop-shadow(0 0 0.75rem var(--dark));
+
+    --easing: cubic-bezier(0, 0.55, 0.45, 1);
+
+    --dk-pattern: url("images/diamonds-dark.png");
+    --lt-pattern: url("images/diamonds-light.png");
+
+    scroll-behavior: smooth;
+}
+
+/* ----- BODY STYLES ----- */
+body{
+    font-family: var(--fonts);
+    box-sizing: border-box;
+    font-size: 1.25rem;
+    position: relative;
+}
+
+/* ----- BODY STYLES - LIGHT MODE ----- */
+body.light{
+    color: var(--dark);
+}
+
+/* ----- BODY STYLES - DARK MODE ----- */
+body.dark{
+    color: var(--lightest);
+}
+
+/* ----- BACKGROUND STYLES - DARK MODE ----- */
+body.light #background{
+    background-color: var(--lightest);
+    opacity: 1;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, var(--lightest) 110px ), repeating-linear-gradient( #D9D9D955, var(--med-lt));
+    transition: all 2s var(--easing);
+}
+
+/* ----- BACKGROUND STYLES - DARK MODE ----- */
+body.dark #background{
+    background-color: #282828;
+    opacity: 1;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #282828 110px ), repeating-linear-gradient( #40403F55, #40403F );
+    transition: all 400ms var(--easing);
+}
+
+#background{
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* ----- OUTER CONTAINER STYLES ----- */
+header, main, footer{
+    padding: 2rem 0;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* ----- HEADING STYLES ----- */
+h1, h2, h3, h4, h5, h6{
+    font-weight: 800;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+h1{
+    font-size: 2.25rem;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+h3{
+    font-size:1.75rem;
+}
+
+h4{
+    font-size: 1.5rem;
+}
+
+/* ----- LINK STYLES ----- */
+a{
+    display: block;
+    padding: 1rem;
+}
+
+/* ----- IMAGE STYLES ----- */
+img{
+    display: block;
+    width: 100%;
+}
+
+/* ----- TEXT STYLES ----- */
+p, dl{
+    padding: 1rem 0.5rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-size: 1.25rem;
+}
+
+ol, ul{
+    font-size: 1.4rem;
+}
+
+p{
+    max-width: 55ch;
+    margin: 1rem auto;
+}
+
+dl{
+    max-width: calc(100vw - 2rem);
+}
+
+dt{
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+dd{
+    padding: 0.5rem;
+}
+
+/* ----- STYLES FOR ACCESSIBILITY FROM 
+    https://webaim.org/techniques/css/invisiblecontent/ ----- */
+/* ----- SKIP LINK STYLES ----- */
+#skip{
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+#skip:focus{
+    position:static;
+    width:auto;
+    height:auto;
+    color: var(--dark);
+    background-color: var(--lightest);
+    font-size: 1.2rem;
+}
+
+
+/* ----- ACCESSIBLY HIDDEN CONTENT STYLES ----- */
+.sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    }
+
+/* ----- HEADER STYLES ----- */
+body.light header, body.light footer{
+    background-color: var(--lightest);
+}
+
+body.dark header, body.dark footer{
+    background-color: var(--dark);
+}
+
+/* ----- LOGO STYLES ----- */
+#logo{
+    padding: 0;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#logo svg{
+    width: auto;
+    height: 70px;
+    border-radius: 40px;
+}
+
+body.light #logo svg{
+    fill: var(--dark);
+    background: var(--lightest);
+    filter: drop-shadow(0 0 0.75rem var(--dark));
+}
+
+body.dark #logo svg{
+    fill: var(--lightest);
+    background: var(--dark);
+}
+
+/* ----- LINK FOCUS STYLES ----- */
+body.dark #logo:focus{
+    border: 2px solid var(--accent);
+    outline: none;
+}
+
+body.light #logo:focus{
+    border: 2px solid var(--accent);
+    outline: none;
+}
+
+a:focus-visible, button:focus-visible{
+    border: 2px solid #019587;
+    outline: none;
+}
+
+/* ----- NAVIGATION STYLES ----- */
+nav{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 2rem 0;
+}
+
+nav ul{
+    padding: 0 1rem;
+}
+
+nav li{
+    filter: var(--filter-shadow-large);
+    background-color: var(--accent);
+    color: var(--dark);
+    transition: all 400ms var(--easing);
+    border-radius: 40px;
+    padding: 0.5rem 0;
+    margin: 1rem auto;
+}
+
+nav a{
+    text-decoration: none;
+    color: inherit;
+    letter-spacing: 0.5px;
+}
+
+
+/* ----- LIGHT/DARK MODE STYLES ----- */
+#lt-dk-mode{
+    background-color: var(--med-dk);
+    height: 50px;
+    width: 100px;
+    padding: 10px;
+    margin: 1rem auto;
+    border-radius: 40px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+#sun, #moon{
+    stroke: var(--dark);
+    height: 40px;
+    width: 40px;
+}
+
+#mode-dot{
+    background: transparent;
+    width: 120px;
+    height: 70px;
+    border-radius: 40px;
+    position: absolute;
+    border: none;
+
+}
+
+#circle{
+    display: block;
+    background-color: var(--lightest);
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+}
+
+#circle:focus{
+    outline: 2px solid var(--accent);
+}
+
+#circle.light{
+    left: 10px;
+    transition: all 400ms var(--easing);
+}
+
+
+#circle.dark{
+    left: 60px;
+    transition: all 400ms var(--easing);
+}
+
+/* ----- SHARED SECTION STYLES ----- */
+main > section{
+    padding: 2rem 1rem;
+    border-radius: 100px;
+    width: calc(100% - 2rem);
+    margin: 2rem auto;
+}
+
+/* ----- LIGHT MODE STYLES ----- */
+body.light #intro, body.light #hobbies, body.light #get-out, body.light #playlists{
+    background-color: var(--lightest);
+    color: var(--dark);
+}
+
+/* ----- DARK MODE STYLES ----- */
+body.dark #intro, body.dark #hobbies, body.dark #get-out, body.dark #playlists{
+    background-color: var(--dark);
+    color: var(--lightest);
+}
+
+/* ----- INTRO SECTION STYLES ----- */
+#intro picture{
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: var(--box-shadow-large);
+}
+
+#intro p:last-child{
+    text-align: center;
+    columns: 1;
+    grid-column: 1/-1;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+/* ----- GET OUT SECTION STYLES ----- */
+#get-out dl{
+	max-width: 450px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+#get-out dt{
+	font-weight: bold;
+	text-align: right;
+}
+
+#weather img{
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+body.light #weather img{
+	filter: var(--filter-dark-shadow);
+}
+
+body.dark #weather img{
+	filter: var(--filter-light-shadow);
+}
+
+#get-out ul{
+    padding-left: 2rem;
+}
+
+/* ----- PLAYLISTS STYLES ----- */
+/* ----- SLICK SLIDER CAROUSEL STYLES ----- */
+.carousel{
+	width: 90vw;
+    max-width: 1015px;
+}
+
+.slick-track{
+    padding-top: 15vw;
+    padding-bottom: 15vw;
+    display: flex;
+    gap: 5.5vw;
+}
+
+.slick-slide{
+    color: transparent;
+}
+
+.slick-slide img{
+	width: 70vw;
+	height: auto;
+}
+
+body.light .slick-prev:before, body.light .slick-next:before{
+    font-size: 3rem;
+    color: var(--dark);
+}
+
+body.dark .slick-prev:before, body.dark .slick-next:before{
+    font-size: 3rem;
+    color: var(--lightest);
+}
+
+.slick-prev{
+    left: -60px;
+}
+
+.slick-dots li button:before{
+    font-size: 1rem;
+}
+
+.slick-center{
+    transform: scale(1.15);
+    transition: all 400ms var(--easing);
+}
+
+.slick-center .playlist{
+    filter: grayscale(0%);
+    transition: all 2s cubic-bezier(0, 0.55, 0.45, 1);
+    display: flex !important;
+    flex-direction: column;
+}
+
+.slick-center img{
+    filter: var(--filter-shadow-small);
+}
+
+body.light .slick-center{
+    background-color: var(--lightest);
+    color: var(--dark);
+}
+
+body.dark .slick-center{
+    background-color: var(--dark);
+    color: var(--lightest);
+}
+
+/* ----- HOBBIES SECTION STYLES ----- */
+#hobbies{
+    color: var(--dark);
+    position: relative;
+}
+
+#hobbies section{
+    border-radius: 115px;
+}
+
+#hobbies .ui-accordion-header{
+    display: flex;
+    gap: 1rem;
+}
+
+#hobbies .ui-accordion-header::before{
+    display: block;
+    height: 36px;
+    width: 24px;
+    padding-top: 0.2rem;
+    margin-right: 0.2rem;
+    content: url(images/arrow-right-dk.svg);
+    transform: scale(1.25);
+    transition: all 400ms var(--easing);
+}
+
+#hobbies .ui-accordion-header-active::before{
+    content: url(images/arrow-right-dk.svg);
+}
+
+#hobbies .ui-accordion-header-collapsed::before{
+    content: url(images/arrow-right-lt.svg);
+}
+
+#hobbies .ui-state-active.ui-accordion-header::before{
+    transform: scale(1.25) rotate(90deg);
+}
+
+#hobbies h3{
+    text-align: left;
+    font-weight: 800;
+    border: none;
+    border-radius: 35px;
+    font-size: 1.75rem;
+    color: var(--dark);
+}
+
+#hobbies h4{
+    padding: 0.25rem 0;
+    border-bottom: 6px solid var(--accent);
+    border-top: 6px solid var(--accent);
+}
+
+#hobbies p{
+    padding: 0;
+}
+
+#hobbies a{
+    display: inline;
+    padding: 0;
+}
+
+#hobbies .ui-widget {
+    font-family: var(--fonts);
+    padding: 1rem;
+}
+
+#hobbies .ui-widget-content{
+    color: var(--dark);
+}
+
+#hobbies .ui-corner-all{
+}
+
+#hobbies .ui-state-default{
+    background: var(--dk-accent);
+    color: var(--lightest);
+}
+
+.ui-accordion .ui-accordion-content{
+    padding: 4rem 1rem;
+}
+
+.ui-icon{
+    display: none;
+    background: none;
+}
+
+#hobbies .ui-state-active{
+    background: var(--accent);
+    color: var(--dark);
+}
+
+/* ----- STYLES FOR HOBBIES/ACCORDION CONTENT ----- */
+#accordion section{
+    margin-bottom: 1rem;
+}
+
+#accordion svg{
+    stroke: var(--dark);
+    fill: var(--dark);
+    max-height: 150px;
+    width: auto;
+    margin: 1.5rem auto 0 8vw;
+    float: left;
+}
+
+#accordion ul{
+    padding-left: 12vw;
+}
+
+#accordion li, #get-out li{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 2.5rem;
+    line-height: 1.25;
+}
+
+#get-out li{
+    height: 4.5rem;
+}
+
+#accordion li::before, #get-out li::before{
+    color: var(--accent);
+    font-size: 1.75rem;
+}
+
+#accordion li::before{
+    color: var(--accent);
+    font-size: 1.75rem;
+    content: " \274D"; /* a circle with a shadow in place of regular bullet */
+}
+
+#get-out li::before{
+    color: var(--accent);
+    font-size: 2.25rem;
+    padding-top: 0.25rem;
+    content: "\2600"; /* a sun icon in place of regular bullet */
+}
+
+#accordion #crafts svg{
+    float: none;
+    display: block;
+    width: 150px;
+    margin: 0.5rem auto;
+}
+
+#crafts strong{
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+
+#accordion #baking, #accordion #gardening, #accordion #paint, #accordion #beads, #accordion #scrapbook, #accordion #quilt{
+    margin: 1.5rem 1rem 0 9vw;
+}
+
+/* ----- HOBBIES/ACCORDION STYLES ----- */
+.ui-accordion .ui-accordion-content{
+    padding: 3rem 1.5rem;
+}
+
+#slides-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    justify-items: center;
+}
+
+#web-pages{
+    grid-column: 1/-1;
+}
+
+#next-site, #prev-site{
+    border: none;
+    display: flex;
+    align-items: center;
+    background-color: var(--accent);
+    padding: 0.5rem;
+    width: 100%;
+    height: 5rem;
+    border-radius: 40px;
+    filter: var(--filter-shadow-large);
+    position: relative;
+    color: var(--dark);
+    font-weight: bold;
+}
+
+#prev-site{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    justify-content: start;
+}
+
+#prev-site::after{
+    content: "Previous Site";
+}
+
+#next-site{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    justify-content: end;
+}
+
+#next-site::before{
+    content: "Next Site";
+}
+
+#next-site svg, #prev-site svg{
+    width: 2.75rem;
+    height: 3rem;
+    max-height: 3rem;
+    margin: 0;
+    float: none;
+    padding: 0.5rem;
+}
+
+#prev-site svg{
+    transform: rotate(180deg);
+}
+
+#web-pages section.show{
+    display: grid;
+
+}
+
+#web-pages section.hide{
+    display: none;
+}
+
+#web-pages img{
+    width: 100%;
+    margin: 1rem auto;
+}
+
+#next-site svg, #prev-site svg{
+    fill: none;
+}
+
+/* ----- FOOTER STYLES ----- */
+footer div{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer p{
+    text-align: center;
+    columns: 1;
+}
+
+footer a{
+    padding: 0;
+}
+
+#socials{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    justify-items: center;
+    width: calc(100% - 4rem);
+    max-width: 175px;
+    margin: 0 auto;
+}
+
+#socials svg{
+    padding: 1rem;
+    border-radius: 50%;
+    transition: all 400ms var(--easing);
+}
+
+body.light #socials svg{
+    stroke: var(--dark);
+}
+
+body.dark #socials svg{
+    stroke: var(--lightest);
+}
+
+/* ----- BACK TO TOP BUTTON STYLES ----- */
+#back-to-top{
+    background-color: var(--accent);
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: none;
+    position: fixed;
+    left: calc(100vw - 5rem);
+    top: calc(100vh - 5rem);
+}
+
+#back-to-top.hide{
+    display: none;
+}
+
+#back-to-top.show{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#back-to-top svg{
+    stroke: var(--dark);
+}
+
+
+/* ----- HOVER STYLES ----- */
+@media(hover:hover){
+    body.light #logo svg:hover{
+        fill: var(--accent);
+        filter: drop-shadow(0 0 0.5rem var(--dark));
+    }
+
+    body.dark #logo svg:hover{
+        fill: var(--accent);
+        filter: drop-shadow(0 0 0.5rem var(--lightest));
+    }
+
+    body.light nav li:hover{
+        filter: var(--filter-shadow-small);
+        background-color: var(--dark);
+        color: var(--lightest);
+    }
+
+    body.dark nav li:hover{
+        filter: none;
+        color: var(--dark);
+        background-color: var(--lightest);
+    }
+
+    #hobbies .ui-state-hover.ui-accordion-header::before{
+        height: 100%;
+        width: auto;
+        padding-top: 0.2rem;
+        transform: scale(2);
+    }
+
+    #hobbies .ui-accordion-header-active.ui-state-hover::before{
+        transform: scale(2) rotate(90deg);
+    }
+
+    #hobbies a:hover{
+        color: var(--dk-accent);
+    }
+
+    #next-site:hover, #prev-site:hover{
+        filter: var(--filter-shadow-small);
+    }
+
+    #socials svg:hover{
+        background: var(--accent);
+        stroke: var(--dark);
+    }
+
+    #back-to-top:hover{
+        background-color: var(--dk-accent);
+    }
+
+    #back-to-top svg:hover{
+        stroke: var(--lightest);
+    }
+}
+
+/* ----- SMALL SCREEN STYLES ----- */
+@media screen and (min-width: 450px){
+    /* ----- NAV STYLES ----- */
+    nav ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+
+    nav li{
+        margin: 0;
+    }
+
+    /* ----- CAROUSEL STYLES ----- */
+    .slick-track{
+        padding-top: 25vw;
+    }
+}
+
+/* ----- TABLET STYLES ----- */
+@media screen and (min-width: 600px){
+
+    /* ----- HEADER STYLES ----- */
+    header{
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 1rem;
+        align-items: center;
+        padding: 1.5rem;
+        width: calc(100% - 3rem);
+    }
+
+    /* ----- NAVIGATION STYLES ----- */
+    nav{
+        grid-column: 1/-1;
+        grid-row: 2/3;
+        /* width: calc(10vw - 2rem); */
+    }
+
+    nav li{
+        display: flex;
+        align-items: center;
+        /* height: 70px; */
+        background-color: var(--accent);
+        border-radius: 50px;
+    }
+
+    nav a{
+        width: 100%;
+    }
+
+    /* ----- PLAYLISTS STYLES ----- */
+    .playlist{
+        filter: grayscale(100%);
+    }
+
+    /* ----- SLICK SLIDER CAROUSEL STYLES ----- */
+    .carousel{
+        width: calc(90vw - 4rem);
+        margin: 0 auto;
+    }
+
+    .slick-track{
+        padding-top: 25vw;
+    }
+
+    .slick-slide img{
+        width: 100%;
+        order: -1;
+    }
+
+    .slick-center{
+        transform: scale(1.5);
+        padding: 0.5rem;
+        background-color: var(--lightest);
+        z-index: 1;
+        filter: grayscale(0%);
+    }
+
+    .slick-center img{
+        filter: var(--filter-shadow-large);
+    }
+
+    /* ----- HOBBIES/ACCORDION STYLES ----- */
+    .ui-accordion .ui-accordion-content{
+        padding: 3rem 1.5rem;
+    }
+
+    #accordion #crafts{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    #crafts svg{
+        grid-column: 1/2;
+        grid-row: span 2;
+        justify-self: end;
+        float: none;
+        margin: 0;
+    }
+    
+    #crafts p, #crafts strong{
+        grid-column: 2/3;
+    }
+    
+    #crafts p:first-of-type{
+        grid-column: 1/-1;
+    }
+
+    /* ----- FOOTER STYLES ----- */
+    #socials{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 1rem;
+        justify-items: center;
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* ----- CAROUSEL ADJUSTMENTS ----- */
+@media screen and (min-width: 685px){
+    /* ----- SLICK SLIDER CAROUSEL STYLES ----- */
+    .slick-track{
+        padding-top: 15vw;
+    }
+
+    /* ----- STYLES FOR HOBBIES/ACCORDION CONTENT ----- */
+    #accordion #crafts{
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+/* ----- DESKTOP STYLES ----- */
+@media screen and (min-width: 1000px){
+
+    /* ----- OUTER CONTAINER STYLES ----- */
+    header, main, footer{
+        margin: 0 auto;
+        border-radius: 115px;
+    }
+
+    /* ----- TEXT STYLES ----- */
+    p, dl{
+        font-size: 1.4rem;
+    }
+
+    /* ----- HEADER STYLES ----- */
+    header{
+        display: grid;
+        grid-template-columns: 0.5fr 1.5fr 4fr 0.5fr;
+        gap: 1rem;
+        align-items: center;
+        padding: 3rem;
+        width: calc(100% - 6rem);
+        max-width: calc(1280px - 6rem);
+    }
+
+    /* ----- NAVIGATION STYLES ----- */
+    nav{
+        grid-row: auto;
+        grid-column: auto;
+        width: auto;
+    }
+
+    nav li{
+        display: flex;
+        align-items: center;
+        background-color: var(--accent);
+        border-radius: 50px;
+    }
+
+    nav ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+
+    nav a{
+        flex-grow: 1;
+    }
+
+    /* ----- SHARED SECTION STYLES ----- */
+    main > section{
+        padding: 3rem;
+        width: calc(100% - 6rem);
+        max-width: calc(1280px - 6rem);
+        margin: 2rem auto;
+    }
+
+    /* ----- TEXT STYLES ----- */
+    dl{
+        max-width: calc(25vw - 1rem);
+    }
+
+    /* ----- SECTION STYLES ----- */
+    main > section{
+        padding: 3rem;
+        border-radius: 115px;
+        margin: 3rem auto;
+    }
+
+    /* ----- INTRO SECTION STYLES ----- */
+    #intro{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 1rem;
+    }
+
+    #intro h2{
+        grid-column: 1/-1;
+    }
+
+    #intro picture{
+        grid-row: 2/4;
+        align-self: center;
+    }
+
+    #intro p{
+        grid-column: 2/3;
+        padding: 0;
+    }
+
+    /* ----- GET OUT SECTION STYLES ----- */
+    #get-out{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    #get-out h2, #get-out .span{
+        grid-column: 1/-1;
+    }
+
+    #get-out section{
+        padding: 1rem 0;
+    }
+
+    /* ----- PLAYLIST SECTION STYLES ----- */
+    #playlists{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem 1rem;
+    }
+    
+    #playlists h2, .carousel{
+        grid-column: 1/-1;
+    }
+
+    /* ----- PLAYLISTS CAROUSEL STYLES ----- */
+    .slick-center .playlist{
+        padding: 0;
+        background-color: transparent;
+        max-width: calc(300px + 1rem);
+    }
+
+    .slick-track{
+        padding-top: 12vw;
+        padding-bottom: 10vw;
+        gap: 1.5vw;
+    }
+
+    .slick-slide img{
+        width: 25vw;
+        max-width: 300px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    /* ----- HOBBIES SECTION STYLES ----- */
+    .ui-accordion .ui-accordion-content{
+        padding: 1rem 2.2rem;
+    }
+    #accordion #crafts{
+        gap: 1rem 2rem;
+    }
+
+    /* ----- SLIDER IN ACCORDION ADJUSTMENT ----- */
+    #slides-container{
+        min-height: 1000px;
+        width: 100%;
+        margin: 0 auto;
+        grid-template-columns: 1fr 10fr 1fr;
+        align-items: start;
+    }
+    #next-site, #prev-site{
+        justify-content: center;
+        align-items: center;
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        top: 500px;
+        grid-row: auto;
+        grid-column: auto;
+    }
+
+    #prev-site::after, #next-site::before{
+        display: none;
+    }
+
+    #web-pages{
+        grid-column: auto;
+    }
+
+    #web-pages img{
+        width: 80%;
+    }
+
+    /* ----- FOOTER STYLES ----- */
+    footer div{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1rem;
+        align-items: center;
+        justify-items: center;
+    }
+}
