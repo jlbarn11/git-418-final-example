@@ -7,6 +7,9 @@
         <meta name="author" content="Jessica Barnett">
         <meta name="description" content="You could use a break! Here I share my hobbies and other things I enjoy when I need a break. Hopefully you'll find something that sounds like fun to you!">
 
+        <!-- FAVICON -->
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
         <!--  GOOGLE FONT USED ON PAGE  -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +71,7 @@
                     <source media="screen and (min-width: 1000px)" srcset="images/me-as-potato-square.jpeg">
                     <source media="screen and (min-width: 601px)" srcset="images/me-as-potato.jpeg">
                     <source media="screen and (max-width: 600px)" srcset="images/me-as-potato-square.jpeg">
-                    <img src="images/me-as-potato-square.jpeg" alt="screenshot from zoom of professor barnett in the upside down from stranger things while using the snapchat potato filter">
+                    <img src="images/me-as-potato-square.jpeg" alt="screenshot from zoom of professor barnett in the upside down from stranger things while using the snapchat potato filter" width="300" height="300">
                 </picture>
                 <p>Stressed out? Need to take some time for yourself (or just waste some time and relax)? Below, you will find suggestions for things you can listen to or participate in solely for fun! Find a silly and upbeat playlist, pick up a new relaxing hobby, or get outside and enjoy the (not very) fresh air.</p>
                 <p>These are my hobbies, but this isn't a list of all hobbies, so if none of these sound like fun to you, hit up Google to find more. Listen to that potato in the Upside-Down. They know what they're talking about. (it me)</p>
@@ -79,9 +82,27 @@
             <!-- This section is meant to satisfy the loading content from an API requirement for the final project -->
             <section id="get-out" aria-labelledby="get-out-head">
                 <h2 id="get-out-head">Get Outside</h2>
-                <p class="span">Not sure what you can enjoy when the weather is nice? Try some of the suggestions below. If you choose not to allow location services, the weather shown will be for Phoenix, AZ.</p>
-                <section id="weather" aria-label="current weather details" aria-live="polite"></section>
-                <section aria-labelledby="to-do-head" aria-live="polite">
+                <p class="span">Not sure what you can enjoy when the weather is nice? Try some of the suggestions below. If you would like to see suggestions based on the current weather in your area, click the button below and allow location services to access your geolocation.</p>
+                <button id="get-weather">Get Local Weather</button>
+                <section id="weather" aria-live="polite" aria-labelledby="current-head" class="sr-only">
+                    <h3 id="current-head">Current Weather</h3>
+                    <strong>Today's Weather for Phoenix</strong>
+					<img src="images/favicon-sq.png" alt="">
+					<dl>
+						<dt>Current Conditions:</dt>
+						<dd></dd>
+
+						<dt>Current Temp:</dt>
+						<dd></dd>
+
+						<dt>Sunrise:</dt>
+						<dd></dd>
+
+						<dt>Sunset:</dt>
+						<dd></dd>
+					</dl>
+                </section>
+                <section id="to-do" aria-labelledby="to-do-head" aria-live="polite" class="sr-only">
                     <h3 id="to-do-head">What To Do?</h3>
                     <p id="weather-feedback"></p>
                     <ul id="suggestions"></ul>
@@ -96,7 +117,7 @@
                 <p>Search online for playlists that you enjoy. While some services require that you pay for membership (Apple Music, Spotify Premium), not all do (Pandora, Spotify with ads, etc). There are also a lot of music playlists on YouTube for free. Choose more than one so that you have music to listen to no matter what you're doing: studying, cleaning, relaxing, etc. Music can make a big difference in your mood!</p>
 
                 <!-- Code below used with the Accessible Slick Slider carousel jQuery plugin -->
-                <div class="carousel" aria-label="album slideshow">
+                <div class="carousel" aria-label="album slideshow" aria-live="polite">
                     <section class="playlist" aria-labelledby="eighties">
                         <h3 id="eighties">80's Video Hits</h3>
                         <img src="images/eighties-video-hits.jpeg" alt="eighties video hits" width="300" height="300">

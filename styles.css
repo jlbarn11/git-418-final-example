@@ -59,6 +59,7 @@ table {
     --dark: #40403F;
     --accent: #F26800;
     --dk-accent: #8e3d00;
+    --teal: #019587;
 
     --lightest-rgba: rgba(242, 242, 242, 1);
     --md-lt-rgba:  rgba(216, 216, 216, 1);
@@ -133,7 +134,7 @@ header, main, footer{
 }
 
 /* ----- HEADING STYLES ----- */
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6, #weather strong{
     font-weight: 800;
     text-align: center;
     margin: 1rem 0;
@@ -147,7 +148,7 @@ h2{
     font-size: 2rem;
 }
 
-h3{
+h3, #weather strong{
     font-size:1.75rem;
 }
 
@@ -159,6 +160,8 @@ h4{
 a{
     display: block;
     padding: 1rem;
+    outline: 6px solid transparent;
+    border-radius: 40px;
 }
 
 /* ----- IMAGE STYLES ----- */
@@ -211,11 +214,12 @@ dd{
 
 #skip:focus{
     position:static;
-    width:auto;
+    width: calc(100% - 4rem);
     height:auto;
     color: var(--dark);
     background-color: var(--lightest);
     font-size: 1.2rem;
+    margin: 0 auto;
 }
 
 
@@ -243,6 +247,7 @@ body.dark header, body.dark footer{
     padding: 0;
     width: fit-content;
     margin: 0 auto;
+    outline: 6px solid transparent;
 }
 
 #logo svg{
@@ -263,19 +268,33 @@ body.dark #logo svg{
 }
 
 /* ----- LINK FOCUS STYLES ----- */
-body.dark #logo:focus{
-    border: 2px solid var(--accent);
-    outline: none;
+#logo:focus{
+    outline: 6px solid var(--teal);
+}
+/* body.dark #logo:focus{
+    outline: 2px solid var(--accent);
 }
 
 body.light #logo:focus{
-    border: 2px solid var(--accent);
-    outline: none;
+    outline: 2px solid var(--accent);
+} */
+
+a:focus-visible, button:focus-visible, a:focus, button:focus, a:focus-within, button:focus-within, #get-weather:focus, #get-weather:focus-visible, #get-weather:focus-within{
+    /* border-color: #019587; */
+    outline: 6px solid var(--teal);
 }
 
-a:focus-visible, button:focus-visible{
-    border: 2px solid #019587;
-    outline: none;
+.slick-prev:focus-visible, .slick-next:focus-visible, .slick-prev:focus-within, .slick-next:focus-within, #socials svg:focus{
+    /* border-color: #019587; */
+    outline: 6px solid var(--teal);
+}
+
+#hobbies .ui-accordion-header:focus-visible, .slick-dots li button:focus{
+    outline: 6px solid var(--teal);
+}
+
+.slick-dots li button:focus::before{
+    color: var(--teal);
 }
 
 /* ----- NAVIGATION STYLES ----- */
@@ -296,7 +315,7 @@ nav li{
     color: var(--dark);
     transition: all 400ms var(--easing);
     border-radius: 40px;
-    padding: 0.5rem 0;
+    /* padding: 0.5rem 0; */
     margin: 1rem auto;
 }
 
@@ -304,6 +323,8 @@ nav a{
     text-decoration: none;
     color: inherit;
     letter-spacing: 0.5px;
+    border-radius: 40px;
+    padding: 1.5rem 0;
 }
 
 
@@ -402,6 +423,29 @@ body.dark #intro, body.dark #hobbies, body.dark #get-out, body.dark #playlists{
 }
 
 /* ----- GET OUT SECTION STYLES ----- */
+#get-weather{
+    font-family: var(--fonts);
+    display: block;
+    max-width: 275px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    filter: var(--filter-shadow-large);
+    background-color: var(--accent);
+    color: var(--dark);
+    transition: all 400ms var(--easing);
+    border-radius: 40px;
+    padding: 1rem;
+    border-color: transparent;
+    border: none;
+    margin: 1rem auto;
+    outline: 4px solid var(--accent);
+}
+
+#weather strong{
+    display: block;
+}
+
 #get-out dl{
 	max-width: 450px;
 	display: grid;
@@ -458,18 +502,24 @@ body.dark #weather img{
 	height: auto;
 }
 
-body.light .slick-prev:before, body.light .slick-next:before{
-    font-size: 3rem;
-    color: var(--dark);
+.slick-prev, .slick-next{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    outline: 6px solid transparent;
 }
 
-body.dark .slick-prev:before, body.dark .slick-next:before{
+.slick-prev:before, body.dark .slick-next:before{
     font-size: 3rem;
-    color: var(--lightest);
+    color: var(--accent);
 }
 
 .slick-prev{
     left: -60px;
+}
+
+.slick-next{
+    right: -60px;
 }
 
 .slick-dots li button:before{
@@ -502,6 +552,20 @@ body.dark .slick-center{
     color: var(--lightest);
 }
 
+.slick-dots li button{
+    border-radius: 50%;
+    outline: 6px solid transparent;
+}
+
+.slick-dots li button:before{
+    box-sizing: border-box;
+    padding: 0.25rem;
+}
+
+.slick-dots li.slick-active button:before{
+    color: var(--accent);
+}
+
 /* ----- HOBBIES SECTION STYLES ----- */
 #hobbies{
     color: var(--dark);
@@ -515,6 +579,8 @@ body.dark .slick-center{
 #hobbies .ui-accordion-header{
     display: flex;
     gap: 1rem;
+    outline: 6px solid transparent;
+    margin-bottom: 6px;
 }
 
 #hobbies .ui-accordion-header::before{
@@ -775,6 +841,7 @@ footer a{
 
 #socials svg{
     padding: 1rem;
+    outline: 6px solid transparent;
     border-radius: 50%;
     transition: all 400ms var(--easing);
 }
@@ -825,16 +892,20 @@ body.dark #socials svg{
         filter: drop-shadow(0 0 0.5rem var(--lightest));
     }
 
-    body.light nav li:hover{
+    body.light nav li:hover, body.light #get-weather:hover{
         filter: var(--filter-shadow-small);
         background-color: var(--dark);
         color: var(--lightest);
     }
 
-    body.dark nav li:hover{
+    body.dark nav li:hover, body.dark #get-weather:hover{
         filter: none;
         color: var(--dark);
         background-color: var(--lightest);
+    }
+
+    .slick-dots li button:hover::before{
+        color: var(--teal);
     }
 
     #hobbies .ui-state-hover.ui-accordion-header::before{
@@ -1118,12 +1189,17 @@ body.dark #socials svg{
         gap: 1rem;
     }
 
-    #get-out h2, #get-out .span{
+    #get-out h2, #get-out .span, #get-weather{
         grid-column: 1/-1;
     }
 
     #get-out section{
         padding: 1rem 0;
+    }
+
+    #get-out p{
+        margin: 0 auto;
+        padding: 0;
     }
 
     /* ----- PLAYLIST SECTION STYLES ----- */
