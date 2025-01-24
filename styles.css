@@ -509,7 +509,7 @@ body.dark #weather img{
     outline: 6px solid transparent;
 }
 
-.slick-prev:before, body.dark .slick-next:before{
+.slick-prev:before, .slick-next:before{
     font-size: 3rem;
     color: var(--accent);
 }
